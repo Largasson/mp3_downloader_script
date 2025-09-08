@@ -25,8 +25,8 @@ def main(args):
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser(description="Поиск страницы трека на djpantelis.bandcamp.com")
-    ap.add_argument("--artist", required=True, help="Имя исполнителя, напр.: 'DJ Pantelis & Geo Spiropoulos'")
-    ap.add_argument("--title", required=True, help="Название трека, напр.: 'Thelo Na Me Nioseis (Extended Mix)'")
+    ap.add_argument("--artist", required=True, help="Имя исполнителя, напр.: 'DJ Pantelis'")
+    ap.add_argument("--title", required=True, help="Название трека, напр.: 'DJ Pantelis & Geo Spiropoulos - Thelo Na Me Nioseis (Extended Mix)'")
     ap.add_argument("--debug", action="store_true", help="Диагностические сообщения")
     arguments = ap.parse_args()
 
