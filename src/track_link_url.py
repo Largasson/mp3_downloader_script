@@ -9,7 +9,7 @@ Headless-захват media-ответа Bandcamp:
 """
 
 from typing import Dict, Optional, Mapping, Any
-from urllib.parse import urlparse
+# from urllib.parse import urlparse
 
 from playwright.sync_api import sync_playwright, TimeoutError as PWTimeout, Error as PWError
 
