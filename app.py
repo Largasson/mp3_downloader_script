@@ -6,7 +6,7 @@ from src.track_link_url import get_track_download_link
 
 
 def main(args):
-    track_page_url = find_on_bandcamp(args.artist, args.title, debug=args.debug)
+    track_page_url = find_on_bandcamp(args)
     if track_page_url:
         print("Страница трека:", track_page_url)
     else:
