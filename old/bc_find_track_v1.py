@@ -8,7 +8,7 @@
 Опционально для fallback: playwright (+ python -m playwright install chromium)
 
 Запуск:
-  python bc_find_track.py --artist "Efan" --title "Jacob's Ladder" [--debug]
+  python bc_find_track_v1.py --artist "Efan" --title "Jacob's Ladder" [--debug]
 """
 
 import argparse
@@ -177,7 +177,7 @@ def find_on_bandcamp(args):
 
     url = build_bandcamp_search_url(args.artist, args.title, "t")
     # 1) всегда печатаем ссылку на страницу поиска
-    # print(url)
+    print(url)
 
     # 2) пытаемся достать ссылки через requests
     links: List[str] = []
@@ -198,14 +198,14 @@ def find_on_bandcamp(args):
         links = pl_links
 
     # # 4) выводим найденные трек-ссылки (по одной на строку)
-    # for u in links:
-    #     print(u)
+    for u in links:
+        print(u)
 
     # 5) выбираем максимально подходящую ссылку
     if links:
         best = pick_best_link(links, args.artist, args.title, debug=args.debug)
         if best:
-            # print(f"BEST: {best}")
+            print(f"BEST: {best}")
             return best
 
 
@@ -218,4 +218,9 @@ if __name__ == "__main__":
     ap.add_argument("--debug", action="store_true")
     args = ap.parse_args()
 
+    # from collections import namedtuple
+    #
+    # args = namedtuple('Args', ['artist', 'title', 'debug'])
+    # args.artist = "DJ Pantelis"
+    # args.title = 'DJ Pantelis & Geo Spiropoulos - Thelo Na Me Nioseis (Extended Mix)'
     print(find_on_bandcamp(args))
